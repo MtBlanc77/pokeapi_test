@@ -1,0 +1,93 @@
+[
+  {
+    "id": 1,
+    "name": "bulbasaur",
+    "sprite": "/sprites/1.png",
+    "types": [
+      { "name": "grass", "icon": "/types/12.png" },
+      { "name": "poison", "icon": "/types/4.png" }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "ivysaur",
+    "sprite": "/sprites/2.png",
+    "types": [
+      { "name": "grass", "icon": "/types/12.png" },
+      { "name": "poison", "icon": "/types/4.png" }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "venusaur",
+    "sprite": "/sprites/3.png",
+    "types": [
+      { "name": "grass", "icon": "/types/12.png" },
+      { "name": "poison", "icon": "/types/4.png" }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "charmander",
+    "sprite": "/sprites/4.png",
+    "types": [
+        { "name": "fire", "icon": "/types/10.png" }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "charmeleon",
+    "sprite": "/sprites/5.png",
+    "types": [
+      { "name": "fire", "icon": "/types/10.png" }
+    ]
+  },
+  {
+    "id": 6,
+    "name": "charizard",
+    "sprite": "/sprites/6.png",
+    "types": [
+      { "name": "fire", "icon": "/types/10.png" },
+      { "name": "flying", "icon": "/types/3.png" }
+    ]
+  },
+  {
+    "id": 7,
+    "name": "squirtle",
+    "sprite": "/sprites/7.png",
+    "types": [
+      { "name": "water", "icon": "/types/11.png" }
+    ]
+  },
+  {
+    "id": 8,
+    "name": "wartortle",
+    "sprite": "/sprites/8.png",
+    "types": [
+      { "name": "water", "icon": "/types/11.png" }
+    ]
+  },
+  {
+    "id": 9,
+    "name": "blastoise",
+    "sprite": "/sprites/9.png",
+    "types": [
+      { "name": "water", "icon": "/types/11.png" }
+    ]
+  },
+  {
+    "id": 10,    
+    "name": "caterpie",
+    "sprite": "/sprites/10.png",
+    "types": [
+      { "name": "bug", "icon": "/types/7.png" }
+    ]
+  }
+]
+
+
+
+
+
+
+
