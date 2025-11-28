@@ -5,36 +5,51 @@ const pokemon = require("../data/pokemon.json");
 
 const app = express();
 const PORT = process.env.PORT || 3001;
-    
-// Habilitar CORS para que la web en otro puerto pueda consumir
+
+// Habilitar CORS
 app.use(cors());
 
-// Servir archivos estáticos (sprites, types, etc.)
+// Servir archivos estáticos (sprites, tipos, etc)
 app.use(express.static(path.join(__dirname, "..", "public")));
 
-// Endpoint principal: /pokemon?limit=10
+// Endpoint principal
 app.get("/pokemon", (req, res) => {
   const limit = parseInt(req.query.limit || "10", 10);
   const slice = pokemon.slice(0, limit);
 
+  // IMPORTANTE: Construir URLs completas de imagen
+  const response = slice.map((p) => ({
+    ...p,
+    sprite: `http://localhost:${PORT}${p.sprite}`,
+    types: p.types.map((t) => ({
+      ...t,
+      icon: t.icon ? `http://localhost:${PORT}${t.icon}` : null
+    }))
+  }));
+
   res.json({
     count: pokemon.length,
-    next: null,
-    previous: null,
-    results: slice
+    results: response
   });
 });
 
-// Endpoint detalle opcional: /pokemon/:id
+// Endpoint por ID
 app.get("/pokemon/:id", (req, res) => {
   const id = parseInt(req.params.id, 10);
-  const pokemon = pokemon.find((p) => p.id === id);
+  const p = pokemon.find((pkm) => pkm.id === id);
 
-  if (!pokemon) {
-    return res.status(404).json({ message: "Pokemon not found" });
-  }
+  if (!p) return res.status(404).json({ message: "Pokemon not found" });
 
-  res.json(pokemon);
+  const response = {
+    ...p,
+    sprite: `http://localhost:${PORT}${p.sprite}`,
+    types: p.types.map((t) => ({
+      ...t,
+      icon: t.icon ? `http://localhost:${PORT}${t.icon}` : null
+    }))
+  };
+
+  res.json(response);
 });
 
 app.listen(PORT, () => {
