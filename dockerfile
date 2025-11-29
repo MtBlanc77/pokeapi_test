@@ -1,17 +1,20 @@
-# Imagen base
+# Imagen base ligera de Node
 FROM node:20-alpine
 
 # Directorio de trabajo
 WORKDIR /app
 
-# Copiar package.json y package-lock.json si existe
+# Copiar solo manifest para aprovechar la cache
 COPY package*.json ./
 
-# Instalar dependencias
-RUN npm install --only=production
+# Instalar dependencias (prod + dev si necesitas build/test)
+RUN npm install
 
 # Copiar el resto del código
 COPY . .
+
+# Variable de entorno para el puerto
+ENV PORT=3001
 
 # Exponer puerto de la API
 EXPOSE 3001
